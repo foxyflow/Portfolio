@@ -56,7 +56,7 @@ class playGame extends Phaser.Scene{
         this.load.image('pipe', 'assets/pipe60.png');
     }
     create(){
-        var style = { font: "16px Arial", fill: "#ffffff", align: "center" };
+        var style = { font: "16px Garamond", fill: "#FFFFFF", align: "left" };
         this.pipeGroup = this.physics.add.group();
         this.pipePool = [];
         for(let i = 0; i < 4; i++){
