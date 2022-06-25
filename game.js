@@ -56,6 +56,7 @@ class playGame extends Phaser.Scene{
         this.load.image('pipe', 'assets/pipe60.png');
     }
     create(){
+        var style = { font: "16px Arial", fill: "#ffffff", align: "center" };
         this.pipeGroup = this.physics.add.group();
         this.pipePool = [];
         for(let i = 0; i < 4; i++){
@@ -69,12 +70,12 @@ class playGame extends Phaser.Scene{
         this.input.on('pointerdown', this.flap, this);
         this.score = 0;
         this.topScore = localStorage.getItem(gameOptions.localStorageName) == null ? 0 : localStorage.getItem(gameOptions.localStorageName);
-        this.scoreText = this.add.text(10, 10, '');
+        this.scoreText = this.add.text(10, 10, '', style);
         this.updateScore(this.score);
     }
     updateScore(inc){
         this.score += inc;
-        this.scoreText.text = 'Click to play\n' + 'Score: ' + this.score + '\nBest: ' + this.topScore;
+        this.scoreText.text = 'Click or tap to play.\nScroll down for portfolio😉\n\n' + 'Score: ' + this.score + '\nBest: ' + this.topScore;
     }
     placePipes(addScore){
         let rightmost = this.getRightmostPipe();
